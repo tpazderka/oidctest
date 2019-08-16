@@ -98,7 +98,7 @@ ORDER = [
     "OP-request_uri", "OP-request", "OP-claims"]
 
 if __name__ == '__main__':
-    from oic.oic.message import factory as oic_message_factory
+    from oic.oic.message import OIDCMessageFactory
 
     from oidctest.op import profiles
     from oidctest.op import oper
@@ -149,7 +149,7 @@ if __name__ == '__main__':
     kwargs = {
         "flows": FLOWS, "conf": CONF, "client_info": _client_info,
         "profiles": profiles, "operation": oper, 'order': ORDER,
-        "msg_factory": oic_message_factory, "check_factory": check.factory,
+        "msg_factory": OIDCMessageFactory, "check_factory": check.factory,
         "cache": {}, 'profile_handler': SimpleProfileHandler,
         'client_factory': Factory(Client), 'tool_conf': CONF.TOOL
     }

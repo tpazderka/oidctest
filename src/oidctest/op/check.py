@@ -12,7 +12,7 @@ from jwkest.jwt import split_token
 from oic.exception import MessageException
 from oic.oauth2 import message
 from oic.oauth2.message import ErrorResponse
-from oic.oic.message import factory as msg_factory
+from oic.oic.message import OIDCMessageFactory
 # from oic.oic import claims_match
 from oic.oic.message import SCOPE2CLAIMS
 from oic.oic.message import AuthorizationRequest
@@ -2519,7 +2519,7 @@ class Got(Error):
     """
 
     def _func(self, conv):
-        res = get_protocol_response(conv, msg_factory(self._kwargs['where']))
+        res = get_protocol_response(conv, OIDCMessageFactory.get_response_type('test'))
         response = res[0]
         missing = []
         for key in self._kwargs['what']:

@@ -8,7 +8,7 @@ from urllib.parse import quote_plus
 
 import cherrypy
 #from oic.oic import Client
-from oic.oic.message import factory as oic_message_factory
+from oic.oic.message import OIDCMessageFactory
 from otest.aus.client import Factory
 from otest.aus.handling_ph import WebIh
 from otest.conf_setup import construct_app_args
@@ -75,7 +75,7 @@ def make_webenv(config, rest):
 
     # Application arguments
     app_args.update(
-        {"msg_factory": oic_message_factory, 'profile_map': PROFILEMAP,
+        {"msg_factory": OIDCMessageFactory, 'profile_map': PROFILEMAP,
          'profile_handler': ProfileHandler,
          'client_factory': Factory(Client)})
 

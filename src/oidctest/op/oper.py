@@ -164,8 +164,7 @@ class Registration(Operation):
 
 
 class SyncAuthn(SyncGetRequest):
-    response_cls = "AuthorizationResponse"
-    request_cls = "AuthorizationRequest"
+    endpoint = "authorization_endpoint"
 
     def __init__(self, conv, inut, sh, **kwargs):
         super(SyncAuthn, self).__init__(conv, inut, sh, **kwargs)
@@ -189,8 +188,7 @@ class SyncAuthn(SyncGetRequest):
 
 
 class AsyncAuthn(AsyncGetRequest):
-    response_cls = "AuthorizationResponse"
-    request_cls = "AuthorizationRequest"
+    endpoint = "authorization_endpoint"
 
     def __init__(self, conv, inut, sh, **kwargs):
         super(AsyncAuthn, self).__init__(conv, inut, sh, **kwargs)
@@ -444,7 +442,7 @@ class RestoreKeyJar(Operation):
 
 
 class ReadRegistration(SyncGetRequest):
-    response_cls = 'RegistrationResponse'
+    endpoint = "read_endpoint"
     content_type = JSON_ENCODED
 
     def op_setup(self):
@@ -547,8 +545,7 @@ class RotateEncKeys(RotateKeys):
 
 
 class RefreshAccessToken(SyncPostRequest):
-    request_cls = "RefreshAccessTokenRequest"
-    response_cls = "AccessTokenResponse"
+    endpoint = "refresh_endpoint"
 
 
 class Cache(Operation):

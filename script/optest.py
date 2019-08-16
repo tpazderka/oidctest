@@ -9,7 +9,7 @@ import sys
 import traceback
 
 from oic.oic import Client
-from oic.oic.message import factory as oic_message_factory
+from oic.oic.message import OIDCMessageFactory
 from otest.aus.app import WebApplication
 from otest.aus.client import Factory
 from otest.aus.handling import WebIh
@@ -38,7 +38,6 @@ logger = logging.getLogger("")
 
 try:
     from mako.lookup import TemplateLookup
-    from oic.oic.message import factory as message_factory
     from oic.oauth2 import ResponseError
     from oic.utils import exception_trace
     from oic.utils.http_util import Redirect
@@ -128,7 +127,7 @@ if __name__ == '__main__':
 
     # Application arguments
     app_args.update(
-        {"msg_factory": oic_message_factory, 'profile_map': PROFILEMAP,
+        {"msg_factory": OIDCMessageFactory, 'profile_map': PROFILEMAP,
          'profile_handler': ProfileHandler,
          'client_factory': Factory(Client)})
 
