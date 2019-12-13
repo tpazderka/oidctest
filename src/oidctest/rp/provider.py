@@ -218,8 +218,7 @@ class Provider(provider.Provider):
 
         self.claims_type = ["normal"]
         self.behavior_type = []
-        self.server = Server(keyjar=keyjar, ca_certs=ca_certs,
-                             verify_ssl=verify_ssl)
+        self.server = Server(keyjar=keyjar, verify_ssl=verify_ssl)
         self.server.behavior_type = self.behavior_type
         self.claim_access_token = {}
         self.init_keys = []

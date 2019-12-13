@@ -157,6 +157,7 @@ def main_setup(args, lookup=None):
         _op = Provider(sdb=_sdb, **com_args)
         jwks = keyjar_init(_op, config.keys)
     except KeyError:
+        raise
         pass
     else:
         op_arg["jwks"] = jwks
